@@ -1,0 +1,51 @@
+<html>
+<head>
+  <title>D3</title>
+  <meta charset="utf-8" />
+  <script src="https://d3js.org/d3.v4.min.js" type="text/JavaScript"></script>
+  <script src="gantt_alike_chart.js" type="text/JavaScript"></script>
+</head>
+<style>
+body {
+      background: #fff;
+      font-family: 'Open-Sans',sans-serif;
+}
+
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  width: 300px;
+  border-radius: 5px;
+  padding: 2px;
+  background: white;
+  border: 0px;
+  pointer-events: none;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.grid .tick {
+    stroke: lightgrey;
+    opacity: 0.3;
+    shape-rendering: crispEdges;
+}
+.grid path {
+      stroke-width: 0;
+}
+</style>
+<body>
+
+<div id="container">
+  <svg>
+  </svg>
+  <div id="graph"></div>
+</div>
+<script>
+d3.json("https://gist.githubusercontent.com/dmesquita/41d02eb763f52158990e89b0e4691ada/raw/654125c9c41d9b5be0a0153465b1f767ffcf4687/dataset_final.json", function(error, data) {
+        var chart = ganttAlikeChart().width(800).height(300);
+        d3.select("#graph").datum(data.projects).call(chart);
+});
+
+</script>
+</body>
+</html>

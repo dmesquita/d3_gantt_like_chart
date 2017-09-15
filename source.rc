@@ -1,0 +1,12 @@
+chart: ganttAlikeChart
+width: 800
+height: 600
+margin: {top: 20, right: 100, bottom: 20, left:100}
+xScale: d3.scaleTime()
+yScale: d3.scaleLinear()
+colorScale: d3.scaleLinear()
+xValue: d => d.date
+colorValue: d => d.status
+barHeight: 30
+barWidth: 100
+dateFormat: d3.timeParse("%d/%m/%Y")
